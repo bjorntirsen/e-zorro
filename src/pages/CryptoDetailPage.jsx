@@ -6,7 +6,7 @@ export default function CryptoDetailPage(props) {
 
   const id = props.match.params.id
   useEffect(() => {
-    const url = `https://stock-market-dummy-api-default-rtdb.europe-west1.firebasedatabase.app/market-collector/crypto/usd/${id}.json`
+    const url = `https://stock-market-dummy-default-rtdb.firebaseio.com/market-collector/crypto/usd/${id}.json`
     fetch(url)
       .then((res) => res.json())
       .then((data) => setCryptoDetail(data))

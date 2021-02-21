@@ -14,16 +14,25 @@ export default function CryptoPage() {
 
   return (
     <div className="container">
-      <h2 className="text-center mb-5">Crypto currencies</h2>
-      {!cryptoList && <p className="text-center">Loading data</p>}
-      <div className="row ">
+      <div className="row">
+        <div className="col-md-12 text-center">
+          <h2 className="text-uppercase font-weight-bold pt-3">Crypto Currencies</h2>
+          <h3 className="font-monospace">Click on a currency for details</h3>
+        </div>
+      </div>
+      <div className="row">
+        {!cryptoList && <p className="text-center">Loading data...</p>}
+      
         {cryptoList &&
-          Object.entries(cryptoList).map((item, index) => {
-            const key = index
-            const id = item[0]
-            const value = item[1]
-            return <CryptoList id={id} value={value} key={key} />
-          })}
+          Object.entries(cryptoList).map(
+            (item, index) => {
+              const key = index
+              const id = item[0]
+              const value = item[1]
+              return <CryptoList id={id} value={value} key={key} />
+              }
+            )
+          }
       </div>
     </div>
   )

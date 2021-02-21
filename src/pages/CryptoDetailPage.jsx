@@ -13,24 +13,43 @@ export default function CryptoDetailPage(props) {
   }, [id])
 
   return (
-    <div className="container">
+    <div className="container bg-light p-4 shadow mt-3">
+      <div className="row">
+        <div className="col-md-12 text-center">
+          <h1 className="text-uppercase font-weight-bold">Crypto Currency</h1>
+        </div>
+      </div>
+
       {!cryptoDetail && <p>Loading Data</p>}
       {cryptoDetail && (
         <>
-          <div className=" shadow p-3 mb-5 bg-white rounded mr-3 text-center">
-            <div className="row pt-5"></div>
-            <h1 className="pb-3">{cryptoDetail.name}</h1>
-            <img
-              className="pb-4"
-              src={`./icons/${cryptoDetail.name}.png`}
-              alt="not found"
-            />
-            <p>Market: {cryptoDetail.market}</p>
-            <p>Price: {cryptoDetail.price}</p>
-            <p>Today: {cryptoDetail.today}</p>
-            <Link to="/crypto">
-              <button className="btn btn-primary mt-3">Go back</button>
-            </Link>
+          <div className="row">
+            <div className="col-md-12">
+              <h2 className="p-3 text-center text-uppercase bg-primary text-light shadow-sm serif">{cryptoDetail.name}</h2>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12 d-flex">
+              <img
+                className="img-fluid mx-auto mb-2 p-4"
+                src={`../icons/${cryptoDetail.ticker}.png`}
+                alt={`Icon of ${cryptoDetail.name}`}
+              />
+            </div>
+          </div>
+          <div className="row text-center">
+            <div className="col-md-12 my-auto">
+              <p>Market: {cryptoDetail.market}</p>
+              <p>Price: {cryptoDetail.price}</p>
+              <p>Today: {cryptoDetail.today}</p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <Link to="/crypto">
+                <button className="btn btn-primary mt-3">Go back</button>
+              </Link>
+            </div>
           </div>
         </>
       )}

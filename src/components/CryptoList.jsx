@@ -6,9 +6,9 @@ export default function CryptoList({ value, id }) {
   // console.log(value) Innehåller arryen med alla värden
 
   return (
-    <div className=" mainDiv container col-sm-6 col-lg-4">
+    <div className="col-md-3 col-sm-4">
       <Link to={`/CryptoDetailPage/${id}`}>
-        <div className="shadow p-3 mb-5 bg-white rounded mr-3 text-center">
+        <div className="shadow p-3 my-2 bg-white rounded text-center">
           <div className="p-1 mb-2 bg-primary text-white">
             <h3>{value.name}</h3>
           </div>

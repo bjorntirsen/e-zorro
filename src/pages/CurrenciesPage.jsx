@@ -57,29 +57,29 @@ export default function CurrenciesPage() {
                         <h2 className="text-uppercase font-weight-bold pt-3">Currencies</h2>
                         <h3 className="font-monospace">Click on a currency for details</h3>
                     </div>
-                    <div className="row container">
-                        {(!currencyList || !countryFacts || !altList) &&
-                            <div className="col-md-12">
-                                <h4 className="pt-5 text-center">
-                                Loading Currencies...
-                                </h4>
-                            </div>
-                        }
+                </div>
+                <div className="row">
+                    {(!currencyList || !countryFacts || !altList) &&
+                        <div className="col-md-12">
+                            <h4 className="pt-5 text-center">
+                            Loading Currencies...
+                            </h4>
+                        </div>
+                    }
 
-                        {(currencyList && countryFacts && altList) && 
-                            Object.entries(currencyList).map(
-                                currencyItem => {
-                                    const key = currencyItem[0]
-                                    const currency = currencyItem[1]
-                                    const countrycode = getCountryCode(key)
-                                    const alt = altList[countrycode.toUpperCase()]
-                                    return <CurrencyItem key={key} currency={currency}
-                                    countrycode={countrycode}
-                                    alt={`Flag of ${alt}`}
-                                />}
-                            )
-                        }
-                    </div>
+                    {(currencyList && countryFacts && altList) && 
+                        Object.entries(currencyList).map(
+                            currencyItem => {
+                                const key = currencyItem[0]
+                                const currency = currencyItem[1]
+                                const countrycode = getCountryCode(key)
+                                const alt = altList[countrycode.toUpperCase()]
+                                return <CurrencyItem key={key} currency={currency}
+                                countrycode={countrycode}
+                                alt={`Flag of ${alt}`}/>
+                            }
+                        )
+                    }
                 </div>
             </div>
 
